@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Customer Detail</h1>
+    <h3 th:text="${customer.id}"></h3>
+    <h3 th:text="${customer.customerName}"></h3>
+    <h3 th:text="${customer.contactFirstName}"></h3>
+    <h3 th:text="${customer.contactLastName}"></h3>
+    <h3 th:text="${customer.addressLine1}"></h3>
+    <h3 th:text="${customer.addressLine2}"></h3>
+    <h3 th:text="${customer.phone}"></h3>
+    <h3 th:text="${customer.city}"></h3>
+    <h3 th:text="${customer.country}"></h3>
+    <hr>
+    <a href="/customers/all">Back to List</a>
+</body>
+</html>

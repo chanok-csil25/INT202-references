@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Customers List</h1>
+    <div style="display: flex; flex-direction: row; gap: 20px">
+        <a th:each="i: ${#numbers.sequence(1,customers.getTotalPages())}" th:text="${i}"
+           th:href="@{'/customers/page?pageNumber='+${i - 1}}"></a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>customerNumber</th>
+            <th>customerName</th>
+            <th>phone</th>
+            <th>address</th>
+            <th>city</th>
+            <th>country</th>
+        </tr>
+        <tr th:each="c: ${customers}">
+            <td>
+                <a th:href="@{'/customers?id='+${c.id}}" th:text="${c.id}"></a>
+            </td>
+            <td th:text="${c.customerName}"></td>
+            <td th:text="${c.phone}"></td>
+            <td th:text="${c.addressLine1} + ' ' + ${c.addressLine2}"></td>
+            <td th:text="${c.city}"></td>
+            <td th:text="${c.country}"></td>
+            <td>
+                <a th:href="@{'/customers/delete?id='+${c.id}}" style="background: red">Delete</a>
+            </td>
+            <td>
+                <a th:href="@{'/customers/update?id='+${c.id}}" style="background: yellow">Update</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

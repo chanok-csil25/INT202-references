@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Update Customer Form</h1>
+    <form method="post" action="/customers/update">
+        Customer Number : <input name="id" th:value="${customer.id}" readonly><br>
+        Customer Name : <input name="customerName" th:value="${customer.customerName}"><br>
+        Contact First Name : <input name="contactFirstName" th:value="${customer.contactFirstName}"><br>
+        Contact Last Name : <input name="contactLastName" th:value="${customer.contactLastName}"><br>
+        Address Line 1 : <input name="addressLine1" th:value="${customer.addressLine1}"><br>
+        Address Line 2 : <input name="addressLine2" th:value="${customer.addressLine2}"><br>
+        Phone : <input name="phone" th:value="${customer.phone}"><br>
+        City : <input name="city" th:value="${customer.city}"><br>
+        State : <input name="state" th:value="${customer.state}"><br>
+        Country : <input name="country" th:value="${customer.country}"><br>
+        <hr>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
