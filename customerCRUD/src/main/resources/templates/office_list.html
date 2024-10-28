@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Office List</title>
+</head>
+<body>
+<h1>Office List</h1>
+
+<form action="/offices/searchByCity" method="get">
+    <input type="text" name="city" placeholder="Search by City" required />
+    <button type="submit">Search</button>
+</form>
+
+<form action="/offices/searchByCountry" method="get">
+    <input type="text" name="country" placeholder="Search by Country" required />
+    <button type="submit">Search</button>
+</form>
+
+<a href="/offices/add">Add New Office</a>
+<table>
+    <thead>
+    <tr>
+        <th>Office Code</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="office : ${offices}">
+        <td th:text="${office.officeCode}"></td>
+        <td th:text="${office.city}"></td>
+        <td th:text="${office.phone}"></td>
+        <td>
+            <a th:href="@{/offices/edit/{id}(id=${office.officeCode})}">Edit</a>
+            <a th:href="@{/offices/delete/{id}(id=${office.officeCode})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

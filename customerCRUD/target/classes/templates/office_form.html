@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add/Edit Office</title>
+</head>
+<body>
+<h1 th:text="${office.id == null ? 'Add Office' : 'Edit Office'}"></h1>
+<form th:action="@{/offices/save}" th:object="${office}" method="post">
+    <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" th:field="*{city}" required/>
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <input type="text" id="country" th:field="*{country}" required/>
+    </div>
+    <div>
+        <label for="territory">Territory:</label>
+        <input type="text" id="territory" th:field="*{territory}" required/>
+    </div>
+    <input type="hidden" th:field="*{id}"/>
+    <input type="submit" value="Save"/>
+</form>
+<a th:href="@{/offices/all}">Back to Office List</a>
+</body>
+</html>
