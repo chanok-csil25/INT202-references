@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE html>
       <html xmlns:th="http://www.thymeleaf.org">
       <head>
       <title>Add/Edit Customer</title>
@@ -22,15 +18,9 @@
     <label for="email">Email:</label>
     <input type="email" id="email" th:field="*{email}" required/>
   </div>
-  <input type="hidden" th:field="*{id}"/>
+  <input type="hidden" th:field="*{customerNumber}"/>
   <input type="submit" value="Save"/>
 </form>
 <a th:href="@{/customers/all}">Back to Customer List</a>
-</body>
-</html>
-</title>
-</head>
-<body>
-
 </body>
 </html>

@@ -14,7 +14,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/all")
+    @GetMapping("/all/in")
     public String listCustomers(Model model) {
         model.addAttribute("customers", customerService.getAllCustomers());
         return "customer_list";

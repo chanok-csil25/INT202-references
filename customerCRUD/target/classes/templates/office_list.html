@@ -4,38 +4,39 @@
     <title>Office List</title>
 </head>
 <body>
-<h1>Offices</h1>
-<a th:href="@{/offices/add}">Add Office</a>
+<h1>Office List</h1>
+
+<form action="/offices/searchByCity" method="get">
+    <input type="text" name="city" placeholder="Search by City" required />
+    <button type="submit">Search</button>
+</form>
+
+<form action="/offices/searchByCountry" method="get">
+    <input type="text" name="country" placeholder="Search by Country" required />
+    <button type="submit">Search</button>
+</form>
+
+<a href="/offices/add">Add New Office</a>
 <table>
     <thead>
     <tr>
-        <th>ID</th>
+        <th>Office Code</th>
         <th>City</th>
-        <th>Country</th>
-        <th>Territory</th>
+        <th>Phone</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="office : ${offices}">
-        <td th:text="${office.id}"></td>
+        <td th:text="${office.officeCode}"></td>
         <td th:text="${office.city}"></td>
-        <td th:text="${office.country}"></td>
-        <td th:text="${office.territory}"></td>
+        <td th:text="${office.phone}"></td>
         <td>
-            <a th:href="@{/offices/edit/{id}(id=${office.id})}">Edit</a>
-            <a th:href="@{/offices/delete/{id}(id=${office.id})}">Delete</a>
+            <a th:href="@{/offices/edit/{id}(id=${office.officeCode})}">Edit</a>
+            <a th:href="@{/offices/delete/{id}(id=${office.officeCode})}">Delete</a>
         </td>
     </tr>
     </tbody>
 </table>
-<form action="#" th:action="@{/offices/searchByCity}" method="get">
-    <input type="text" name="city" placeholder="Search by City" required/>
-    <input type="submit" value="Search"/>
-</form>
-<form action="#" th:action="@{/offices/searchByCountry}" method="get">
-    <input type="text" name="country" placeholder="Search by Country" required/>
-    <input type="submit" value="Search"/>
-</form>
 </body>
 </html>
